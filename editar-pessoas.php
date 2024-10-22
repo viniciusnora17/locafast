@@ -1,40 +1,54 @@
 <?php 
-
+    include('header.php');
     include('database.php');
 
-    $sql = "SELECT * FROM pessoas WHERE id_pessoas=".$_REQUEST['id_pessoas'];
+    $sql = "SELECT * FROM pessoas WHERE id_pessoas=".$_REQUEST['id'];
     $res = $conn->query($sql);
     $row = $res->fetch_object();
 
-    
-
 ?>
 
-<form action="salvar-pessoas.php" method="post">
-        <input type="hidden" name="acao" value="editar">
-        <input type="hidden" name="id" value="<?php echo $row->id; ?>">
+<link rel="stylesheet" href="css/editar-pessoas.css"> 
+
+<title>Cadastrar Veiculos</title>
+<div class="container">
+    <img src="img/carros.png" class="background-image">
+    </div>
+
+    
+    <div class="formulario">
+      <form action="salvar-pessoas.php">
+
+      <h1 class="tituloform">Editar Pessoa</h1>
+
+      <input type="hidden" name="acao" value="<?php echo $row->id_pessoas;?>">
          <div class="input-label-form">
-        <label>Nome completo: </label> 
-        <input type="text" name="nome" id="nome" value="<?php echo $row->nome; ?>"><br>
+
+        <label>Nome completo: </label> <br>
+        <input type="text" name="nome" id="nome" value="<?php echo $row->nome;?>"><br>
        
+        <label>CPF:</label><br>
+        <input type="number" name="cpf" id="cpf" value="<?php echo $row->CPF;?>"><br>
         
-        <label>CPF:</label>
-        <input type="number" name="cpf" id="cpf" value="<?php echo $row->cpf; ?>"><br>
-        
-        <label>Data de Nascimento:  </label> 
-        <input type="date" name="data_nasc" id="data_nasc" value="<?php echo $row->data_nascimento; ?>"><br>
+        <label>Data de Nascimento:</label> <br>
+        <input type="date" name="data_nasc" id="data_nasc" value="<?php echo $row->Data_Nascimento;?>"><br>
             
-        <label>Endereço:</label>
-        <input type="text" name="endereco" id="endereco" value="<?php echo $row->endereco; ?>"><br>
+        <label>Endereço:</label> <br>
+        <input type="text" name="endereco" id="endereco" value="<?php echo $row->Endereco;?>"><br>
             
           
-        <label>Telefone:</label>
-        <input type="number" name="telefone" id="telefone" value="<?php echo $row->telefone; ?>"><br>
+        <label>Telefone:</label> <br>
+        <input type="number" name="telefone" id="telefone" value="<?php echo $row->Telefone;?>"><br>
+            
 
-        <label>Email:</label>
-        <input type="email" name="email" id="email" value="<?php echo $row->email; ?>">  
+        <label>Email:</label> <br>
+        <input type="email" name="email" id="email" value="<?php echo $row->Email;?>">  
 
-        <button class="botaoform" type="submit">Enviar</button>
+        <button class="botaoform" type="submit">Salvar</button>
         </div>
-         
-        </form>
+
+      
+    </div>
+</form>
+            
+</div>
