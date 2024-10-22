@@ -1,0 +1,112 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    
+    font-family: "Fira Sans", sans-serif !important; 
+}
+
+.formulario{
+position: relative;
+margin: auto;
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+background-color: #fff;
+width: 600px;
+height: 645px;
+margin-top: -830px;
+
+}
+
+
+.input-label-form > label, input{
+width: 500px;
+height: 25px;
+}
+
+.inputnormais{
+display: flex;
+justify-content: center;
+flex-direction: column; 
+gap: 7px;
+width: 500px;
+font-family: "Fira Sans", sans-serif;
+margin-bottom: 45px;
+}
+
+.inputnormais > input{
+height: 35px;
+font-size: 20px;
+}
+
+.inputnormais > label{
+font-size: 16px;
+}
+
+.inputnormais > select{
+height: 35px;
+font-size: 17px;
+font-weight: bolder;
+}
+
+.inputradio{
+display: flex;
+align-items: flex-start;
+align-items: center;
+font-size: 17px;
+gap: 10px;
+}
+
+.inputradio > input{
+
+width: 17px;
+}
+
+.inputradio > p{
+
+margin-left: -9px;
+}
+
+
+.tituloform {    
+font-family: "Fira Sans", sans-serif ;
+font-size: 50px;    
+color: #23232e;
+display: flex;
+align-items: flex-start;
+width: 540px;
+margin-left: 40px;
+margin-top: 45px;
+
+}
+
+.botaoform{
+text-align: center;
+display: flex;
+justify-content: center;
+align-items: center;
+margin: auto;
+width: 150px;
+height: 40px;
+border-radius: 3px;
+border: none;
+background-color: #23232e;
+color: white;
+font-family: "Poppins", serif;
+cursor: pointer;
+}
+
+img{
+background-image: url(../img/carros.png);
+background-repeat: no-repeat;
+opacity: 0.6;
+background-size: cover;
+background-position: right center;
+height: 100vh;
+width: 98.7vw;
+margin-bottom: -10px;
+
+}
+
