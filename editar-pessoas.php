@@ -10,18 +10,18 @@
 
 <link rel="stylesheet" href="css/editar-pessoas.css"> 
 
-<title>Cadastrar Veiculos</title>
+<title>Editar pessoas</title>
 <div class="container">
     <img src="img/carros.png" class="background-image">
     </div>
 
     
     <div class="formulario">
-      <form action="salvar-pessoas.php">
-
-      <h1 class="tituloform">Editar Pessoa</h1>
-
-      <input type="hidden" name="acao" value="<?php echo $row->id_pessoas;?>">
+        <form action="salvar-pessoas.php" method="POST">
+          <h1 class="tituloform">Editar Pessoa</h1>
+     
+      <input type="hidden" name="acao" value="editar">
+      <input type="hidden" name="id" value="<?php echo $row->id_pessoas;?>">
          <div class="input-label-form">
 
         <label>Nome completo: </label> <br>

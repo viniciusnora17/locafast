@@ -92,7 +92,7 @@
     border: none;
     background-color: #23232e;
     color: white;
-    font-family: "Poppins", serif;
+    font-family: "Poppins", serif !important;
     cursor: pointer;
 }
 

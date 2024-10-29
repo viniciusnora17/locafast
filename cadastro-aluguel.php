@@ -10,7 +10,7 @@ include('header.php');
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/cadastroaluguel.css">    
-    <title>Cadastrar Veículos</title>
+    <title>Cadastrar Aluguel</title>
 </head>
 <body>
     
@@ -22,48 +22,33 @@ include('header.php');
         <div class="formulario">
           
           <h1 class="tituloform">Cadastrar Aluguel</h1>
-          <form action="salvar-veiculos.php" method="post">
-            <input type="hidden" name="acao" value="salvar-veiculos">
+          <form action="salvar-aluguel.php" method="post">
+            <input type="hidden" name="acao" value="salvar-aluguel">
                  <div class="input-label-form">
                     <div class="inputnormais">
 
-                    <label>Status:</label>
-                <div class="inputradio">
+                    <!-- <label>Status:</label> -->
+                    <!-- <div class="inputradio">
                     <input type="radio" value="concluido" name="radinput" id="concluido"><p>Concluido</p>
                     <input type="radio" value="cancelado" name="radinput" id="alugado"><p>Cancelado</p>
                     <input type="radio" value="confirmada" name="radinput" id="manutencao"><p>Confirmada</p>
-                </div>
-
+                </div> -->
 
                 <label>Data da reserva: </label>
                 <input type="date" name="datareserva" id="datareserva">
 
                 <label>Data de devolução: </label>
                 <input type="date" name="datadevolucao" id="datadevolucao">
-
-                <label>Placa Veiculo:</label>
-                <select name="veiculosalugar" id="veiculosalugar">
+                <label>Nome Veiculo:</label>
+                <select name="nomeVeiculo" id="nomeVeiculo">
 
                 <option value="">- Escolha -</option>
                     <?php 
 
-                        $sql = "SELECT * FROM veiculos";
+                        $sql = "SELECT veiculos.id, modelo.nome FROM  veiculos INNER JOIN modelo ON modelo.idModelo = veiculos.Modelo_idModelo";
+
                         $res = $conn->query($sql);
-    
-                        
-                    ?>  
 
-                </select>
-
-                <label>Pessoas:</label>
-                <select name="pessoasalugar" id="pessoasalugar">
-                    <option value="">- Escolha -</option>
-                    <?php 
-                      
-
-                        $sql = "SELECT * FROM pessoas";
-                        $res = $conn->query($sql);
-    
                         if($res->num_rows > 0){
                             while($row = $res->fetch_object()){
                                 echo "<option value='".$row->id."'>".$row->nome."</option>";
@@ -71,43 +56,44 @@ include('header.php');
                             }else{
                                 echo "<option>Não há marcas cadastradas</option>";
                             }
-        
+
                     ?>  
+
                 </select>
 
-
-                <label>Valor:</label>
-                <select name="locacao" id="locacao">
-                <option value="">- Escolha -</option>
+                <label>Pessoas:</label>
+                <select name="pessoasalugar" id="pessoasalugar" required>
+                    <option value="">- Escolha -</option>
                     <?php 
-                     
 
-                        $sql = "SELECT * FROM modelo";
+                        $sql = "SELECT * FROM pessoas";
                         $res = $conn->query($sql);
     
                         if($res->num_rows > 0){
                             while($row = $res->fetch_object()){
-                                echo "<option value='".$row->idModelo."'>".$row->Nome."</option>";
+                                echo "<option value='".$row->id_pessoas."'>".$row->nome."</option>";
                                 }
                             }else{
-                                echo "<option>Não há modelos cadastradas</option>";
+                                echo "<option>Não há marcas cadastradas</option>";
                             }
         
                     ?>  
                 </select>
+         
+                    <label>Valor da diaria será de:</label>
+                    <span id="spanjs"></span>
 
-              
-                
-                        <button class="botaoform" type="submit">Enviar</button>
-       
+                    
                 </div>
-             
+                <button onclick="enviar()" class="botaoform" type="submit">Enviar</button>
+               
+       
             </form>
           </div>
                 
     </div>
 
-    <script src="script.js"></script>
+    <script src="scriptaluguel.js"></script>
 </body>
 </html>
 

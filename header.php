@@ -8,7 +8,9 @@
         <li><a href="cadastro-modelo.php">Modelos</a></li>
         <li><a href="cadastro-pessoas.php">Cadastrar-se</a></li>
         <li><a href="cadastro-categoria.php">Categorias</a></li>
-        <li><a href="cadastro-veiculos.php">Veiculos</a></li>
+        <li><a href="listar-veiculos.php">Veiculos</a></li>
+        <li><a href="listar-aluguel.php">Alugueis</a></li>
+
       </ul>
     </nav>
   </header>

@@ -1,0 +1,35 @@
+body{
+    font-family: "Fira Sans", sans-serif !important; 
+}
+
+.inputnormais > select{
+    height: 45px;
+    font-size: 17px;
+    font-weight: bolder;
+    
+}
+
+.inputradio{
+    display: flex;
+    align-items: flex-start;
+    align-items: center;
+    font-size: 17px;
+    gap: 10px;
+}
+
+.inputradio > input{
+
+    width: 17px;
+}
+
+.inputradio > p{
+
+    margin-left: -9px;
+}
+
+select{
+   
+    margin-top: 20px;
+    width: 470px;
+    height: 25px;
+}

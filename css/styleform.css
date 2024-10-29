@@ -50,12 +50,12 @@ img{
 
 .tituloform{
     font-family: "Fira Sans", sans-serif;
-    font-size: 45px;    
+    font-size: 50px;    
     color: #23232e;; 
     display: flex;
     align-items: flex-start;
     width: 540px;
-    margin-top: 30px;
+   margin-bottom: 20px  ;
     margin-left: 50px;
     
 }

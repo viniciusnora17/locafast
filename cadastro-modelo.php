@@ -25,8 +25,10 @@ include('header.php');
             <input type="hidden" name="acao" value="salvar-modelo">
                  <div class="input-label-form">
                     <div class="inputnormais">
-                <label>Qual modelo você deseja cadastrar: </label>
-                <input type="text" name="modelo ">
+
+                <label for="modelo">Qual modelo você deseja cadastrar: </label>
+                <input type="text" name="modelo" id="modelo">
+
                 <label>Marca:</label>
                 <select name="marca_idmarca" id="idmarca">
                     <?php 
@@ -42,10 +44,6 @@ include('header.php');
                             }else{
                                 echo "<option>Não há marcas cadastradas</option>";
                             }
-
-
-                            
-        
                     ?>  
 
                 </select>

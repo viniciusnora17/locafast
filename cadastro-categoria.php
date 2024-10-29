@@ -12,7 +12,7 @@ include('header.php');
 
     <h1 class="tituloform">Cadastrar Categorias</h1>
     <form action="salvar-categoria.php" method="post">
-        <input type="hidden" name="acao" value="categoria">
+        <input type="hidden" name="acao" value="categoria_salvar">
         <div class="input-label-form">
             <div class="inputnormais">
                 <label for="categoria">Qual tipo de carro voce deseja cadastrar: </label>
@@ -20,26 +20,8 @@ include('header.php');
                 
 
                 <label for="valorDiaria">Qual o valor da diária: </label>
-                <input type="hidden" name="valorDiaria" id="valorDiaria">
-                <?php 
-                
-                    include('database.php');
-
-                    $sql = "SELECT * FROM categoria";
-                    $res = $conn->query($sql);
-                    $row = $res->fetch_object();
-
-                    if($res->num_rows > 0){
-                        while($row = $res->fetch_object()){
-                                echo "<p value='".$row->idCategoria."'>".$row->valor_diaria."</p>";
-                                header('location: cadastro-categoria.php');
-                            }
-                        }else{
-                            echo "<option>Não há categorias cadastradas</option>";
-                        }   
-                    
-                    
-                ?>
+                <input type="number" name="valorDiaria" id="valorDiaria">
+              
 
                 <button class="botaoform" type="submit">Enviar</button>
             </div>
