@@ -17,7 +17,7 @@ switch($_REQUEST['acao']){
 
         if($res==true){
                 echo "<script>alert('Cadastro feito com sucesso');</script>"; 
-                header("Location: -pessoas.php");
+                header("Location: listar-manutencao.php");
         }else{
                 echo "<script>alert('Não foi possivel cadastrar');</script>";
         }
@@ -26,24 +26,19 @@ switch($_REQUEST['acao']){
         break;
         exit;
 
-        case 'editar':
+        case 'editar-manutencao':
                 
-             $nome = $_POST['nome'];
-             $cpf = $_POST['cpf'];   
-             $data_nasc = $_POST['data_nasc'];
-             $endereco = $_POST['endereco'];
-             $telefone = $_POST['telefone'];
-             $email = $_POST['email'];
+             $descricao = $_POST['descricao'];
+             $datamanutencao = $_POST['datamanutencao'];   
+             $veiculosmanutencao = $_POST['veiculomanutencao'];
+             $status = $_POST['radinput'];
 
-             $sql = "UPDATE pessoas SET
-             nome ='{$nome}',
-             cpf ='{$cpf}',
-             data_nascimento ='{$data_nasc}',
-             endereco = '{$endereco}',
-             telefone ='{$telefone}',
-             email ='{$email}'
+             $sql = "UPDATE manutencao SET
+             descricao ='{$descricao}',
+             dataManutencao ='{$datamanutencao}',
+             Veiculos_id ='{$veiculosmanutencao}'  
              WHERE
-             id_pessoas = ".$_REQUEST['id'];
+             idManutencao = ".$_REQUEST['id'];
         
         $res = $conn->query($sql);
 

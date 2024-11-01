@@ -17,8 +17,7 @@ include('database.php');
     <div class="container">
         <img src="img/carros.png" class="background-image">
         </div>
-    
-        
+            
         <div class="formulario">
           
           <h1 class="tituloform" style="margin-top: 40px;">Registrar Manutenção</h1>
@@ -29,27 +28,24 @@ include('database.php');
 
                 <label>Veiculo em manutencao: </label>
                 <select name="veiculomanutencao" id="veiculomanutencao">
-                    <option value="">- Escolha -</option>
-                    <?php 
+    <option value="">- Escolha -</option>
+    <?php 
+        $sql = "SELECT v.id, m.Nome 
+                FROM veiculos v
+                JOIN modelo m ON m.idModelo = v.Modelo_idModelo
+                ORDER BY m.Nome";
 
-                        $sql =            
-                            "SELECT v.*, m.Nome 
-                            FROM veiculos v
-                            JOIN modelo m ON m.idModelo = v.Modelo_idModelo
-                            ORDER BY m.Nome";
+        $res = $conn->query($sql);
 
-                        $res = $conn->query($sql);
-    
-                        if($res->num_rows > 0){
-                            while($row = $res->fetch_object()){
-                                echo "<option value='".$row->id."'>".$row->Nome."</option>";
-                                }
-                            }else{
-                                echo "<option>Não há marcas cadastradas</option>";
-                            }
-                    ?>  
-
-                </select>
+        if ($res->num_rows > 0) {
+            while ($row = $res->fetch_object()) {
+                echo "<option value='" . $row->id . "'>" . $row->Nome . "</option>";
+            }
+        } else {
+            echo "<option>Não há modelos cadastrados</option>";
+        }
+    ?>  
+</select>
 
                 <label>Data da manutenção: </label>
                 <input type="date" name="datamanutencao" id="datamanutencao">
@@ -66,6 +62,8 @@ include('database.php');
           </div>
                 
     </div>
+
+    <script src="scriptmanutencao.js"></script>
 </body>
 </html>
 

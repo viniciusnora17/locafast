@@ -16,10 +16,13 @@
         <li><a href="index.php">Home</a></li>
         <li><a href="cadastro-marca.php">Marcas</a></li>
         <li><a href="cadastro-modelo.php">Modelos</a></li>
-        <li><a href="cadastro-pessoas.php">Cadastrar-se</a></li>
+        <li><a href="cadastro-pessoas.php">Pessoas</a></li>
         <li><a href="cadastro-categoria.php">Categorias</a></li>
         <li><a href="listar-veiculos.php">Veiculos</a></li>
         <li><a href="listar-aluguel.php">Alugueis</a></li>
+        <li><a href="cadastro-manutencao.php">Manutenção</a></li>
+        <li><a href="listagem.php">Listagem</a></li>      
+        
       </ul>
     </nav>
   </header>
@@ -39,29 +42,6 @@
       </div>
    
 </div>
-
-    
-<?php 
-
-
-include('database.php');
-  switch(@$_REQUEST["page"]){
-    case 'listar-pessoas':
-      include('listar-pessoas.php');
-      break;
-
-    case 'listar-carros':
-      include('salvar-carros.php');
-      break;
-
-    case 'salvar-pessoas':
-      include('salvar-pessoas.php');
-      break;
-
-  }
-
-
-?>
 
 
 </body>

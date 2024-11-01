@@ -59,7 +59,7 @@ switch($_REQUEST['acao']){
 
         case 'excluir':
 
-                $sql = "DELETE FROM pessoas WHERE id_pessoas=".$_REQUEST['id'];
+                $sql = "DELETE FROM pessoas WHERE id_pessoas=".$_REQUEST['id_'];
 
                 $res = $conn->query($sql);
 

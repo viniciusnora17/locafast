@@ -6,10 +6,12 @@
         <li><a href="index.php">Home</a></li>
         <li><a href="cadastro-marca.php">Marca</a></li>
         <li><a href="cadastro-modelo.php">Modelos</a></li>
-        <li><a href="cadastro-pessoas.php">Cadastrar-se</a></li>
+        <li><a href="cadastro-pessoas.php">Pessoas</a></li>
         <li><a href="cadastro-categoria.php">Categorias</a></li>
-        <li><a href="listar-veiculos.php">Veiculos</a></li>
-        <li><a href="listar-aluguel.php">Alugueis</a></li>
+        <li><a href="cadastro-veiculos.php">Veiculos</a></li>
+        <li><a href="cadastro-aluguel.php">Alugueis</a></li>
+        <li><a href="cadastro-manutencao.php">Manutenção</a></li>
+        <li><a href="listagem.php">Listagem</a></li>      
 
       </ul>
     </nav>
@@ -26,6 +28,7 @@ a{
     color: #fff;
     text-decoration: none;
     transition: 0.3s;
+    font-size: 16px;
 }
 
 a:hover{
@@ -33,7 +36,7 @@ a:hover{
 }
 
 .logo{
-    font-size: 24px;
+    font-size: 28px;
     text-transform: uppercase;
     letter-spacing: 4px;
 }
