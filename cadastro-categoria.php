@@ -16,7 +16,7 @@ include('header.php');
         <div class="input-label-form">
             <div class="inputnormais">
                 <label for="categoria">Qual tipo de carro voce deseja cadastrar: </label>
-                <input type="text" name="categoria" id="categoria" placeholder="Ex: Luxo, SUV, Comum">
+                <input type="text" name="categoria" id="categoria" required placeholder="Ex: Luxo, SUV, Comum">
                 
 
                 <label for="valorDiaria">Qual o valor da diária: </label>

@@ -1,3 +1,3 @@
 function redirect(id){
-    location.href = `editar-manutencao.php?id=${id}`
+    location.href = `editar-aluguel.php?id=${id}`
 }

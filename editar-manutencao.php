@@ -3,17 +3,19 @@ include('header.php');
 include('database.php');
 
 
-$sql = "SELECT m.idManutencao, m.descricao, m.dataManutencao, 
+$sql = "SELECT v.id as veiculoid, m.idManutencao, m.descricao, m.dataManutencao, 
              v.Placa, v.status, modelo.Nome AS modeloNome, marca.nomeMarca 
             FROM manutencao m
             JOIN veiculos v ON m.Veiculos_id = v.id
             JOIN modelo ON v.Modelo_idModelo = modelo.idModelo
             JOIN marca ON v.Marca_idMarca = marca.idMarca";
+            
 
         $res = $conn->query($sql);
 
         $row = $res->fetch_object();
 
+        
 ?>
 
 <!DOCTYPE html>
@@ -68,11 +70,15 @@ $sql = "SELECT m.idManutencao, m.descricao, m.dataManutencao,
         <form action="salvar-manutencao.php" method="POST">
             <h1 class="tituloform">Editar Manutenção</h1>
             <input type="hidden" name="acao" value="editar-manutencao">
-            <input type="hidden" name="id" value="<?php echo $row->id;?>">
+            <input type="hidden" name="id" value="<?php echo $row->idManutencao;?>">
 
             <div class="input-label-form">
                 <label>Veiculo: </label><br>
-                <input type="text" name="veiculomanutencao" id="veiculomanutencao" value="<?php echo $row->modeloNome; ?>">
+              
+    
+                <input type="hidden" name="veiculomanutencao" value=<?php echo $row->veiculoid; ?>>
+                <input type="text"  value="<?php echo $row->modeloNome; ?>">
+
                 <label>Data:</label><br>
                 <input type="text" name="datamanutencao" id="datamanutencao" value="<?php echo $row->dataManutencao; ?>">
                     

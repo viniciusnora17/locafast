@@ -52,7 +52,7 @@
             echo "<td>
             <div class='botoes'>
             <button onclick=\"redirect($row->idManutencao)\" class='botaoeditar'>Editar</button>   
-            <button onclick=\"if(confirm('Tem certeza que deseja excluir?')){location.href='?page=salvar&acao=excluir&id=".$row->idManutencao."'}else{console.log(123)}\" class='botaoexcluir'>Excluir</button>   
+            <button onclick=\"if(confirm('Tem certeza que deseja excluir?')){location.href='salvar-manutencao.php?acao=excluir&id=".$row->idManutencao."'}else{false;}\" class='botaoexcluir'>Excluir</button>   
             </div>
             </td>";
             print "</tr>";
@@ -63,6 +63,6 @@
     }
     ?>
     
-    <script src="scriptlistaraluguel.js"></script>
+    <script src="scriptmanutencao.js"></script>
 </body>
 </html>

@@ -33,18 +33,22 @@ switch($_REQUEST['acao']){
              $veiculosmanutencao = $_POST['veiculomanutencao'];
              $status = $_POST['radinput'];
 
+      
+
              $sql = "UPDATE manutencao SET
              descricao ='{$descricao}',
-             dataManutencao ='{$datamanutencao}',
-             Veiculos_id ='{$veiculosmanutencao}'  
+             Veiculos_id = '{$veiculosmanutencao}'
              WHERE
              idManutencao = ".$_REQUEST['id'];
+
+
         
         $res = $conn->query($sql);
 
         if($res==true){
-                echo "<script>alert('Editado com sucesso');</script>"; 
-                header("Location: listar-pessoas.php");
+                echo "<script>alert('Editado com sucesso');
+                 window.location.href='listar-manutencao.php'</script>"; 
+               
         }else{
                 echo "<script>alert('Não foi possivel editar');</script>";
               
@@ -53,16 +57,16 @@ switch($_REQUEST['acao']){
 
         case 'excluir':
 
-                $sql = "DELETE FROM pessoas WHERE id_pessoas=".$_REQUEST['id'];
+                $sql = "DELETE FROM manutencao WHERE idManutencao=".$_REQUEST['id'];
 
                 $res = $conn->query($sql);
 
         if($res==true){
                 echo "<script>alert('Excluido com sucesso');</script>"; 
-                header("Location: listar-pessoas.php");
+                echo "<script>window.location.href='listar-manutencao.php';</script>"; 
         }else{
                 echo "<script>alert('Não foi possivel excluir');</script>";
-                header("Location: listar-pessoas.php");
+                echo "<script>window.location.href='listar-manutencao.php';</script>"; 
 } 
 
                 break;

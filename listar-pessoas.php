@@ -53,7 +53,8 @@ if($qtd > 0){ //se a qtd de linhas for ma
         echo "<td>
         <div class ='botoes'>
         <button onclick=\"redirect($row->id_pessoas)\" class='botaoeditar'>Editar</button>   
-        <button onclick=\"if(confirm('Tem certeza que deseja excluir?')){location.href='salvar-pessoas.php&acao=excluir&id=".$row->id_pessoas."'}else{false;}\" class='botaoexcluir'>Excluir</button>   
+        
+        <button onclick=\"if(confirm('Tem certeza que deseja excluir?')){location.href='salvar-pessoas.php?acao=excluir&id=".$row->id_pessoas."'}else{false;}\" class='botaoexcluir'>Excluir</button>   
         </div>
         <td>";
         print "</tr>";

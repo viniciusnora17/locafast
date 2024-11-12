@@ -7,36 +7,37 @@
     if (!isset($idAluguel)) {
         die("ID do aluguel não fornecido.");
     }
-  
+ 
     $sql = "SELECT 
     ra.idAluguel,
     ra.Status,
     ra.dataReserva,
     ra.data_devolucao,
     m.Nome AS modelo_nome,
-    p.nome AS cliente_nome
+    p.nome AS cliente_nome,
+    ra.Veiculos_id,        
+    ra.Pessoas_id          
     FROM 
-    reserva_aluguel ra
-
+        reserva_aluguel ra
     JOIN 
-    veiculos v ON ra.Veiculos_id = v.id
+        veiculos v ON ra.Veiculos_id = v.id
     JOIN 
-    modelo m ON v.Modelo_idModelo = m.idModelo
+        modelo m ON v.Modelo_idModelo = m.idModelo
     JOIN 
-    pessoas p ON ra.Pessoas_id = p.id_pessoas
-    WHERE ra.idAluguel = $idAluguel";
+        pessoas p ON ra.Pessoas_id = p.id_pessoas
+    WHERE 
+        ra.idAluguel";
 
     $res = $conn->query($sql);
  
     $row = $res->fetch_object();
-
 
 ?>
 
 <link rel="stylesheet" href="css/editar-pessoas.css"> 
 <link rel="stylesheet" href="css/cadastroa.css"> 
 
-<title>Editar pessoas</title>
+<title>Editar Aluguel</title>
 <div class="container">
     <img src="img/carros.png" class="background-image">
     </div>
@@ -61,13 +62,48 @@
              <label>Data da devolução:</label> <br>
              <input type="text" name="datadevolucao" id="datadevolucao" value="<?php echo $row->data_devolucao;?>"><br>
              
-             <label>Nome Veiculo:</label><br>
-             <input type="hidden" name="veiculos_id" value="<?php echo $row->id; ?>">
-             <input type="text" name="nomeVeiculo" id="veiculo" value="<?php echo $row->modelo_nome?>"><br>
+             <label>Nome Veiculo:</label>
+             <select name="veiculos_id">
+                    <option>- Escolha -</option>
+                    <?php 
+                    
+                    $sql = "SELECT * FROM veiculos v JOIN modelo m ON m.idModelo = v.Modelo_idModelo";
+                    $res = $conn->query($sql);
+
+                    if($res->num_rows > 0){
+                        while($row = $res->fetch_object()){
+                            echo "<option value='".$row->id."'>".$row->Nome."</option>";
+                        }  
+                    }else{
+                        echo "<option>Não há marcas cadastrada</option>";
+                    }
+                    
+
+                    ?>
+                </select>
+             <br>
              
-             <label>Clientes:</label><br>
-             <input type="hidden" name="pessoas_id" value="<?php echo $row->id_pessoas; ?>">
-             <input type="text" name="pessoasalugar" id="pessoasalugar" value="<?php echo $row->cliente_nome?>"><br>
+             <label>Clientes:</label>
+
+             <select name="pessoas_id">
+                    <option>- Escolha -</option>
+                    <?php 
+                    
+                    $sql = "SELECT * FROM pessoas";
+                    $res = $conn->query($sql);
+
+                    if($res->num_rows > 0){
+                        while($row = $res->fetch_object()){
+                            echo "<option value='".$row->idPessoas."'>".$row->nome."</option>";
+                        }
+                        }else{
+                            echo "<option>Não há modelos cadastrada</option>";
+                        }
+
+                    ?>  
+                </select>
+
+
              
              <label>Status: </label> <br>
              <div class="inputradio">

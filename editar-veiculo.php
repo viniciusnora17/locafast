@@ -24,40 +24,10 @@ if ($res) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/cadastrov.css">    
+    <link rel="stylesheet" href="css/editarv.css">    
     <title>Editar Veículos</title>
-    <style>
-        
-        select{
-            width: 500px;
-            height: 45px;
-            margin-left: 30px;
+   
 
-        }
-
-        label{
-            margin-left: 30px;
-        }
-
-        input{
-            height: 45px;
-            margin-left: 30px;
-        }
-
-        h1{
-           margin-left: -50px;
-           margin-bottom: 20px;
-        }
-
-        .inputradio{
-            display: flex;
-            justify-content: baseline;
-            gap: 1;
-        }
-
-
-
-    </style>
 </head>
 <body>
     
@@ -70,34 +40,63 @@ if ($res) {
             <h1 class="tituloform">Editar Veículos</h1>
             <input type="hidden" name="acao" value="editar-veiculos">
             <input type="hidden" name="id" value="<?php echo $row->id;?>">
-
-            <div class="input-label-form">
-                <label>Placa: </label><br>
-                <input type="text" name="placa" id="placa" value="<?php echo $row->Placa;?>"><br>
+            
+            <label>Status:</label><br>
+            <div class="inputsradio ">
                 
-                <label>Marca:</label><br>
-                <select name="marcaid" id="marca">
-                    <option value="<?php echo $row->Marca_idMarca; ?>"><?php echo $row->nome_marca; ?></option>
-                   
-                </select><br>
-                
-                <label>Modelo:</label><br>
-                <select name="modeloid" id="modelo">
-                    <option value="<?php echo $row->Modelo_idModelo; ?>"><?php echo $row->nome_modelo; ?></option>
-
-                </select><br>
-
-                <br>
-                <label>Status:</label>
-                <div class="inputradio">
-                    <input type="radio" value="disponivel" name="radinput" id="disponivel" checked><p>Disponível</p>
-                    <input type="radio" value="alugado" name="radinput" id="alugado"><p>Alugado</p>
-                    <input type="radio" value="manutencao" name="radinput" id="manutencao"><p>Em manutenção</p>
-                </div>
-
-                <button class="botaoform" type="submit">Salvar</button>
+                <input type="radio" class="inputs" value="disponivel" name="radinput" id="disponivel" checked>Disponível
+                <input type="radio" class="inputs" value="alugado" name="radinput"  id="alugado">Alugado
+                <input type="radio" class="inputs" value="manutencao" name="radinput" id="manutencao">Manutenção
             </div>
-        </form>
-    </div>  
-</body>
-</html> 
+                    
+            <div class="input-label-form">
+                <label>Placa: </label>
+                <input type="text" name="placa" id="placa" value="<?php echo $row->Placa;?>">
+             
+                <label>Marca:</label>
+         
+                <select name="marcaid">
+                    <option>- Escolha -</option>
+                    <?php 
+                    
+                    $sql = "SELECT * FROM marca";
+                    $res = $conn->query($sql);
+
+                    if($res->num_rows > 0){
+                        while($row = $res->fetch_object()){
+                            echo "<option value='".$row->idMarca."'>".$row->nomeMarca."</option>";
+                        }  
+                    }else{
+                        echo "<option>Não há marcas cadastrada</option>";
+                    }
+                    
+
+                    ?>
+                </select>
+
+                <label>Modelo:</label>
+                <br>
+                <button class="botaoform" type="submit">Salvar</button>
+                <select name="modeloid">
+                    <option>- Escolha -</option>
+                    <?php 
+                    
+                    $sql = "SELECT * FROM modelo";
+                    $res = $conn->query($sql);
+
+                    if($res->num_rows > 0){
+                        while($row = $res->fetch_object()){
+                            echo "<option value='".$row->idModelo."'>".$row->Nome."</option>";
+                        }
+                        }else{
+                            echo "<option>Não há modelos cadastrada</option>";
+                        }
+
+                    ?>  
+                </select>
+                        </div>  
+                        
+                    </form>
+                </div>
+                </body>
+                </html> 

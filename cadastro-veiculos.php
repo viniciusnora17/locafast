@@ -34,7 +34,21 @@ include('header.php');
                 <select name="categoriaid" id="categoriaid">
                 <option value="">- Escolha -</option>
 
-            
+                <?php 
+                        include('database.php');
+
+                        $sql = "SELECT * FROM categoria";
+                        $res = $conn->query($sql);
+    
+                        if($res->num_rows > 0){
+                            while($row = $res->fetch_object()){
+                                echo "<option value='".$row->idCategoria."'>".$row->Nome."</option>";
+                                }
+                            }else{
+                                echo "<option>Não há marcas cadastradas</option>";
+                            }
+        
+                    ?>  
 
                 </select>
 

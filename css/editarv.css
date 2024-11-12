@@ -18,52 +18,19 @@
 
 .input-label-form > label, input{
     width: 500px;
-    height: 25px;
     font-family: "Fira Sans", sans-serif;
+    margin-left: 50px;
+    margin-bottom: 20px;
  
 }
 
-.inputnormais{
-    display: flex;
-    justify-content: center;
-    flex-direction: column; 
-    gap: 10px;
-    width: 500px;
-    font-family: "Fira Sans", sans-serif;
-    margin-bottom: 45px;
-}
-
-.inputnormais > input{
+#placa{
     height: 45px;
-    font-size: 20px;
 }
 
-.inputnormais > label{
-    font-size: 20px;
-}
 
-.inputnormais > select{
-    height: 45px;
-    font-size: 17px;
-    font-weight: bolder;
-}
-
-.inputradio{
-    display: flex;
-    align-items: flex-start;
-    align-items: center;
-    font-size: 17px;
-    gap: 10px;
-}
-
-.inputradio > input{
-
-    width: 17px;
-}
-
-.inputradio > p{
-
-    margin-left: -9px;
+.input-label-form{
+    margin-top: 20px;
 }
 
 
@@ -74,8 +41,8 @@
     display: flex;
     align-items: flex-start;
     width: 540px;
-    margin-left: 40px;
-    margin-top: 45px;
+    margin-left: 50px;
+    margin-top: -105px;
 
 }
 
@@ -83,6 +50,7 @@
     text-align: center;
     display: flex;
     justify-content: center;
+    position: absolute;
     align-items: center;
     margin: auto;
     width: 150px;
@@ -93,6 +61,8 @@
     color: white;
     font-family: "Poppins", serif;
     cursor: pointer;
+    margin-left: 220px;
+    margin-top: 100px;
 }
 
 img{
@@ -106,4 +76,38 @@ img{
     margin-bottom: -10px;
 
 }
+
+select{
+    height: 45px;
+    width: 500px;
+    margin-left: 50px;
+}
+
+.inputsradio > label, input{
+   margin-bottom: 30px;
+
+}
+
+.inputsradio >  input{
+    margin-bottom: 30px;
+    margin-right: 20px;
+ }
+
+label{
+    font-family: "Fira Sans", sans-serif;
+    margin-left: 50px;
+}
+
+.inputsradio{
+    display: flex;
+    justify-content: space-evenly   ;
+    width: 500px;
+    position: absolute;
+    
+}
+
+.inputsradio > input{
+    width: 25px;
+ 
+ }
 

@@ -16,7 +16,7 @@ include('header.php');
          <div class="input-label-form">
         <div class="inputnormais">
             <label>Qual marca você deseja cadastrar: </label>
-            <input type="text" name="marca" id="marca"><br>
+            <input type="text" name="marca" id="marca" required><br>
    
 
         <button class="botaoform" type="submit">Enviar</button>

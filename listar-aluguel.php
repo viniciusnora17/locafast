@@ -26,6 +26,7 @@ $sql = "SELECT
 ra.idAluguel,
 ra.Status,
 ra.dataReserva,
+ra.locacao,
 ra.data_devolucao,
 m.Nome AS modelo_nome,
 p.nome AS cliente_nome
@@ -53,6 +54,7 @@ if($qtd > 0){
     echo "<th>Veiculo</th>";
     echo "<th>Cliente</th>";
     echo "<th>Valor</th>";
+    echo "<th></th>";
     echo "<th>Ações</th>";
     
     print "</tr>";
@@ -64,11 +66,13 @@ if($qtd > 0){
         echo "<td>".$row->data_devolucao."</td>";
         echo "<td>".$row->modelo_nome."</td>";
         echo "<td>".$row->cliente_nome."</td>";
+        echo "<td>".$row->locacao."</td>";
         echo "<td>"."</td>";
         echo "<td>
         <div class ='botoes'>
         <button onclick=\"redirect($row->idAluguel)\" class='botaoeditar'>Editar</button>   
-        <button onclick=\"if(confirm('Tem certeza que deseja excluir?')){location.href='?page=salvar&acao=excluir&id=".$row->idAluguel."'}else{console.log(123)}\" class='botaoexcluir'>Excluir</button>   
+        
+        <button onclick=\"if(confirm('Tem certeza que deseja excluir?')){location.href='salvar-aluguel.php?acao=excluir&id=".$row->idAluguel."'}else{false;}\" class='botaoexcluir'>Excluir</button>   
         </div>
         <td>";
         print "</tr>";

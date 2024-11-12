@@ -11,6 +11,7 @@ include('header.php');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/cadastroaluguel.css">    
     <title>Cadastrar Aluguel</title>
+    
 </head>
 <body>
     
@@ -24,6 +25,7 @@ include('header.php');
           <h1 class="tituloform">Cadastrar Aluguel</h1>
           <form action="salvar-aluguel.php" method="post">
             <input type="hidden" name="acao" value="salvar-aluguel">
+            <input type="hidden"  value="salvar-categoria.php">
                  <div class="input-label-form">
                     <div class="inputnormais">
 
@@ -35,13 +37,13 @@ include('header.php');
                 </div> -->
 
                 <label>Data da reserva: </label>
-                <input type="date" name="datareserva" id="datareserva">
+                <input onchange="enviar()" type="date" name="datareserva" class="calculo">
 
                 <label>Data de devolução: </label>
-                <input type="date" name="datadevolucao" id="datadevolucao">
+                <input  onchange="enviar()" type="date" name="datadevolucao" class="calculo">
                 <label>Nome Veiculo:</label>
-                <select name="nomeVeiculo" id="nomeVeiculo">
 
+                <select name="nomeVeiculo" id="nomeVeiculo">
                 <option value="">- Escolha -</option>
                     <?php 
 
@@ -80,19 +82,21 @@ include('header.php');
                     ?>  
                 </select>
          
-                    <label>Valor da diaria será de:</label>
-                    <span id="spanjs"></span>
-
-                    
+                    <label>Valor da diaria será de: <span class="valor"></span></label>
+                    <input type="hidden" name="locacao" class="valor" id="calcular">
+               
                 </div>
                 <button onclick="enviar()" class="botaoform" type="submit">Enviar</button>
-               
        
             </form>
           </div>
                 
     </div>
-
+    
+    <script
+  src="https://code.jquery.com/jquery-3.7.1.js"
+  integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+  crossorigin="anonymous"></script>
     <script src="scriptaluguel.js"></script>
 </body>
 </html>

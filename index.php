@@ -18,8 +18,8 @@
         <li><a href="cadastro-modelo.php">Modelos</a></li>
         <li><a href="cadastro-pessoas.php">Pessoas</a></li>
         <li><a href="cadastro-categoria.php">Categorias</a></li>
-        <li><a href="listar-veiculos.php">Veiculos</a></li>
-        <li><a href="listar-aluguel.php">Alugueis</a></li>
+        <li><a href="cadastro-veiculos.php">Veiculos</a></li>
+        <li><a href="cadastro-aluguel.php">Alugueis</a></li>
         <li><a href="cadastro-manutencao.php">Manutenção</a></li>
         <li><a href="listagem.php">Listagem</a></li>      
         
